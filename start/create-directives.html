@@ -9,12 +9,30 @@
 <body>
 <div ng-app="myApp">
   <my-own-directive></my-own-directive>
+	
+  <div my-own-directive></div>
+  <div class="my-2nd-directive"></div>
+  <!-- directive: my-3rd-directive -->
+	
 </div>
 <script>
 var app = angular.module('myApp' , []);
 app.directive('myOwnDirective' , function(){
   return{
-	template: "<p>Hello!</p>"
+	template: "<p>invoke a directive by using Element name and Attribute</p>"
+  }
+})
+app.directive('my2ndDirective' , function(){
+  return{
+	restrict: "C",
+	template: "<p>invoke a directive by using Class</p>"
+  }
+})
+app.directive('my3rdDirective' , function(){
+  return{
+	restrict: "M",
+	replace: true,
+	template: "<p>invoke a directive by using Comment</p>"
   }
 })
 </script>
