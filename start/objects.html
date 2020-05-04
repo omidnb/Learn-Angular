@@ -7,9 +7,9 @@
 </head>
 
 <body>
-<div ng-app="" ng-init="car={Brand:'BMW',Model:'E46'}">
-  <p>The name is <span ng-bind="car.Brand"></span></p>
-  <p>It is an {{car.Model}}</p>
+<div ng-app="" ng-init="car=['BMW','E46']">
+  <p>The name is <span ng-bind="car[0]"></span></p>
+  <p>It is an {{car[1]}}</p>
 </div>
 </body>
 </html>
