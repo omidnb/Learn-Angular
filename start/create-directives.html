@@ -19,6 +19,7 @@
 var app = angular.module('myApp' , []);
 app.directive('myOwnDirective' , function(){
   return{
+	restrict: "EAC",
 	template: "<p>invoke a directive by using Element name and Attribute</p>"
   }
 })
@@ -35,6 +36,16 @@ app.directive('my3rdDirective' , function(){
 	template: "<p>invoke a directive by using Comment</p>"
   }
 })
+	
+/*
+The legal restrict values are:
+    E for Element name
+	A for Attribute
+    C or Class
+    M for Comment
+
+----EA, means that both Element names and attribute names can invoke the directive.----
+*/
 </script>
 </body>
 </html>
