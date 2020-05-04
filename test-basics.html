@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+	<div ng-app="" ng-init="myColor='lightgreen'">
+		<input style="background-color: {{myColor}}" ng-model="myColor">
+		<p ng-bind="myColor"></p>
+		<p>the color is {{"*" + myColor + "*"}}</p>
+	</div>
+</body>
+</html>
