@@ -8,12 +8,26 @@
 
 <body>
 <form name="myForm" ng-app="" ng-init="myEmail = 'example@gmail.com'">
-  Email: <input name="eAddress" type="email" ng-model="myEmail">
+  Email: <input name="eAddress" type="email" ng-model="myEmail" required>
   <span ng-show="myForm.eAddress.$error.email">invalid address!</span>
   <p>valid: {{myForm.eAddress.$valid}}</p>
   <p>dirty: {{myForm.eAddress.$dirty}} (if true, the value has been changed.)</p>
   <p>touched: {{myForm.eAddress.$touched}}</p>
 </form>
 	
+<style>
+	input.ng-invalid{background-color: lightsalmon;}
+	/*
+    ng-empty
+    ng-not-empty
+    ng-touched
+    ng-untouched
+    ng-valid
+    ng-invalid
+    ng-dirty
+    ng-pending
+    ng-pristine
+	*/
+</style>
 </body>
 </html>
