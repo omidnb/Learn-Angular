@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+	
+ <div ng-app="myApp" ng-controller="myCtrl">
+	First Name: <input type="text" ng-model="fName"><br>
+	Last Name: <input type="text" ng-model="lName"><br>
+	Full Name: {{fullName()}}<hr>
+	<ul>
+	  <li ng-repeat="x in names">{{x.name + ' ' + x.age}}</li>
+	  <li ng-repeat="y in car">{{y}}</li>
+	</ul> 
+  </div>
+  <script>
+	var app = angular.module('myApp' , []);
+	app.controller('myCtrl' , function($scope){
+	  $scope.fName = "Omid";
+	  $scope.lName = "Nobahari";
+      $scope.fullName = function(){
+		return $scope.fName + ' ' + $scope.lName;
+	  }
+	  $scope.names = [{name:"omid" , age:25},
+					  {name:"mamad" , age:24},
+					  {name:"amir" , age:25},
+					  {name:"matin" , age:22},
+					  {name:"tina" , age:12},
+					  {name:"sara" , age:25}];
+	  $scope.car = [46,30];
+	})
+  </script>
+
+</body>
+</html>
