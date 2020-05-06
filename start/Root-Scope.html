@@ -10,7 +10,11 @@
 	<p>This is {{status|lowercase}} (lowercase filter added)</p><hr>
 	<div ng-controller="myCtrl">
 		<ul><li>This is {{status}}</li></ul>
-		<ul><li ng-repeat="y in names | orderBy:'fName'">I am {{y.fName + ' ' + y.lName | uppercase }}, {{y.balance | currency}} (orderBy:'name' , uppercase)</li></ul>	
+		<ul>
+			<b><a ng-click="myPersonalOrderBy('fName')">sort-by-first-name</a><br>
+			<a ng-click="myPersonalOrderBy('lName')">sort-by-last-name</a><br></b>
+			<li ng-repeat="y in names | orderBy:myOrderBy">I am {{y.fName + ' ' + y.lName | uppercase }}, {{y.balance | currency}} (orderBy:'name' , uppercase)</li>
+		</ul>	
 	</div><hr>
 	<p>This is {{status | uppercase}} (uppercase filter added)</p>
 	
@@ -29,6 +33,9 @@
 				{fName:'Mamad',lName:'Solgi',balance:'768'},
 				{fName:'Sara',lName:'Shoja',balance:'17'}
 			];
+			$scope.myPersonalOrderBy = function(y){
+				$scope.myOrderBy = y;
+			}
 		});
 	</script>
 </body>
