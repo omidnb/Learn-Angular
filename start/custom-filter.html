@@ -31,10 +31,17 @@
   			}; 
 		})
 		
-		app.controller('ctrl',function($scope , $location){
+		app.controller('ctrl',function($scope , $location , $timeout){
 			$scope.names = ['omid','amir','mamad','tina','sara','saeed','matin','mohamad','kavian','kamelia','kambiz','tara','sepide','reza','milad','nikoo'];
 		
 			$scope.myUrl = $location.absUrl();
+			
+			$timeout(
+				function(){
+					$scope.myUrl = "timeout service";
+				},
+			2000
+			);
 		});
 	</script>
 </body>
