@@ -13,6 +13,11 @@
 		</ul>
 		
 		<p>{{myUrl}}</p>
+		
+		<p>time is: {{timenow}}</p>
+		<p>live time: {{livetime}}</p>
+		<p>live time(clock): {{clocktime}}</p>
+		<p>time: {{time}}</p>
 	</div>
 	<script>
 		var app = angular.module('myapp' , []);
@@ -31,7 +36,7 @@
   			}; 
 		})
 		
-		app.controller('ctrl',function($scope , $location , $timeout){
+		app.controller('ctrl',function($scope , $location , $timeout , $interval){
 			$scope.names = ['omid','amir','mamad','tina','sara','saeed','matin','mohamad','kavian','kamelia','kambiz','tara','sepide','reza','milad','nikoo'];
 		
 			$scope.myUrl = $location.absUrl();
@@ -42,7 +47,22 @@
 				},
 			2000
 			);
+			
+			
+			$scope.timenow = new Date();
+			$interval(function(){
+				$scope.livetime = new Date();
+			},1000);
+			$interval(function(){
+				$scope.clocktime = new Date().toLocaleTimeString();
+			},1000)
+			
+			$scope.time = new Date().toLocaleTimeString();
+			$interval(function(){
+				$scope.time = new Date().toLocaleTimeString();
+			},1000)
 		});
+		
 	</script>
 </body>
 </html>
