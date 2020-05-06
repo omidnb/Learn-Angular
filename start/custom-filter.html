@@ -11,6 +11,7 @@
 		<ul>
 			<li ng-repeat="x in names">{{x | myFilter}}</li>
 		</ul>
+		<p>{{myUrl}}</p>
 	</div>
 	<script>
 		var app = angular.module('myapp' , []);
@@ -29,8 +30,9 @@
   			}; 
 		})
 		
-		app.controller('ctrl',function($scope){
+		app.controller('ctrl',function($scope , $location){
 			$scope.names = ['omid','amir','mamad','tina','sara','saeed','matin','mohamad','kavian','kamelia','kambiz','tara','sepide','reza','milad','nikoo'];
+			$scope.myUrl = $location.absUrl();
 		});
 	</script>
 </body>
