@@ -7,11 +7,12 @@
 </head>
 
 <body ng-app="myApp">
-	<p>I am {{status}}</p>
+	<p>This is {{status|lowercase}} (lowercase filter added)</p><hr>
 	<div ng-controller="myCtrl">
-		<p>I am {{status}}</p>
-	</div>
-	<p>I am {{status}}</p>
+		<ul><li>This is {{status}}</li></ul>
+		<ul><li ng-repeat="y in names | orderBy:'fName'">I am {{y.fName + ' ' + y.lName | uppercase }}, {{y.balance | currency}} (orderBy:'name' , uppercase)</li></ul>	
+	</div><hr>
+	<p>This is {{status | uppercase}} (uppercase filter added)</p>
 	
 	<script>
 		var app = angular.module('myApp' , []);
@@ -21,6 +22,13 @@
 		});
 		app.controller('myCtrl' , function($scope){
 			$scope.status= "scope";
+			$scope.names= [
+				{fName:'Omid',lName:'Nobahari',balance:'23'},
+				{fName:'Tina',lName:'Sadeh',balance:'56'},
+				{fName:'Amir',lName:'Tajik',balance:'2'},
+				{fName:'Mamad',lName:'Solgi',balance:'768'},
+				{fName:'Sara',lName:'Shoja',balance:'17'}
+			];
 		});
 	</script>
 </body>
